@@ -30,14 +30,32 @@ jobs:
             dep ensure
         fi
 
-    - name: Build
-      run: go build -v .
+    - name: Build MacOs
+      run: GOOS=darwin GOARCH=amd64 go build  -o filetree-darwin -v
+
+    - name: Build Linux
+      run: GOOS=linux GOARCH=amd64 go build  -o filetree-linux -v
+
+    - name: Build windows
+      run: GOOS=windows GOARCH=amd64 go build  -o filetree-linux -v
 
     - name: Test
       run: go test -v .
 
-    - name: Preserving Artifact
+    - name: Preserving Artifact MacOS
       uses: actions/upload-artifact@master
       with:
-        name: filetree
-        path: filetree
+        name: filetree-darwin
+        path: filetree-darwin
+
+    - name: Preserving Artifact Linux
+      uses: actions/upload-artifact@master
+      with:
+        name: filetree-linux
+        path: filetree-linux
+
+    - name: Preserving Artifact Windows
+      uses: actions/upload-artifact@master
+      with:
+        name: filetree-windows
+        path: filetree-windows
