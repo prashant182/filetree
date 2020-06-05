@@ -37,7 +37,7 @@ jobs:
       run: GOOS=linux GOARCH=amd64 go build  -o filetree-linux -v
 
     - name: Build windows
-      run: GOOS=windows GOARCH=amd64 go build  -o filetree-linux -v
+      run: GOOS=windows GOARCH=amd64 go build  -o filetree-windows.exe -v
 
     - name: Test
       run: go test -v .
@@ -57,5 +57,5 @@ jobs:
     - name: Preserving Artifact Windows
       uses: actions/upload-artifact@master
       with:
-        name: filetree-windows
-        path: filetree-windows
+        name: filetree-windows.exe
+        path: filetree-windows.exe
