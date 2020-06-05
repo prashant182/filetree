@@ -36,7 +36,8 @@ jobs:
     - name: Test
       run: go test -v .
 
-    - uses: actions/upload-artifact@master
+    - name: Preserving Artifact
+      uses: actions/upload-artifact@master
       with:
         name: filetree
         path: filetree
