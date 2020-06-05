@@ -39,7 +39,30 @@ and export that information into either YAML or JSON format. It can be customize
 If you choose to include only a certain files in that walk you can provide the --contains flag. 
 If you wish to remove extension from the output use --no-extn flag.By default the value is "true". 
 if --dry-run flag is used to show the output on the console before checking out the file. 
---in and --out flags are used respectively to consume input and output path.`,
+--in and --out flags are used respectively to consume input and output path.
+
+
+examples:
+a directory containing following file structure
+
+sc
+├── file.go
+├── file_test.go
+└── src
+    ├── deploy
+    │   ├── deploy.go
+    │   └── deploy_test.go
+    ├── pod.go
+    └── pod_test.go
+
+Command: filetree walk --outType=yaml --camel-case  --no-extn --in=./sc --contains=_test --dry-run
+sc:
+  fileTest: "true"
+  src:
+    deploy:
+      deployTest: "true"
+     podTest: "true"
+`,
 	Run: func(cmd *cobra.Command, args []string) {
 		root := node.DFS(inp)
 		m := root.ToMap(contains, camelCase, noExtn)

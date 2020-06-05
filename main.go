@@ -15,7 +15,9 @@ limitations under the License.
 */
 package main
 
-import "github.com/prashant182/filetree/cmd"
+import (
+	"github.com/prashant182/filetree/cmd"
+)
 
 func main() {
 	cmd.Execute()

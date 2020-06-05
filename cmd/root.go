@@ -33,9 +33,6 @@ var rootCmd = &cobra.Command{
 	Long: `This light weight files allow you to generate the YAML/JSON tree structure for a directory 
 and all the files in it. The names of the files in the output can be customized. If you choose to pick and/or ignore
 certain files in the list the regex can be added to filter those out.`,
-	// Uncomment the following line if your bare application
-	// has an action associated with it:
-	//	Run: func(cmd *cobra.Command, args []string) { },
 }
 
 // Execute adds all child commands to the root command and sets flags appropriately.
@@ -45,19 +42,16 @@ func Execute() {
 		fmt.Println(err)
 		os.Exit(1)
 	}
+
+	//err := doc.GenMarkdownTree(rootCmd, "./docs")
+	//if err != nil {
+	//	log.Fatal(err)
+	//}
 }
 
 func init() {
 	cobra.OnInitialize(initConfig)
-
-	// Here you will define your flags and configuration settings.
-	// Cobra supports persistent flags, which, if defined here,
-	// will be global for your application.
-
 	rootCmd.PersistentFlags().StringVar(&cfgFile, "config", "", "config file (default is $HOME/.filetree.yaml)")
-
-	// Cobra also supports local flags, which will only run
-	// when this action is called directly.
 	rootCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
 }
 
