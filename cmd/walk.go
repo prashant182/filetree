@@ -27,7 +27,9 @@ import (
 var walkCmd = &cobra.Command{
 	Use:   "walk",
 	Short: "walk allows you to recursively find all the files and directories in a given location.",
-	Long: `walk command allows you to recursively find all the files and directories in a given location 
+	Long: `
+
+walk command allows you to recursively find all the files and directories in a given location 
 and export that information into either YAML or JSON format. It can be customized using either --json or --yaml. 
 If you choose to include only a certain files in that walk you can provide the --contains flag. If you wish to remove extension 
 from the output use --no-extn flag. 
@@ -41,6 +43,7 @@ to consume input and output path.`,
 }
 
 var cwd=""
+var contains = ""
 
 func init() {
 	rootCmd.AddCommand(walkCmd)
@@ -48,13 +51,12 @@ func init() {
 	if err!=nil{
 		log.Println("Unable to read current working dir error: ",err)
 	}
-
-	// Cobra supports Persistent Flags which will work for this command
 	// and all subcommands, e.g.:
-	walkCmd.Flags().String("in", cwd, "Path of the directory that you want to walk. Default is working dir")
-	walkCmd.Flags().String("out", cwd, "output where you want to store JSON/YAML file. Default is working dir")
-
-	// Cobra supports local flags which will only run when this command
-	// is called directly, e.g.:
-	// walkCmd.Flags().BoolP("toggle", "t", false, "Help message for toggle")
+	walkCmd.Flags().String("in", cwd, "Path of the directory that you want to walk.")
+	walkCmd.Flags().String("out", cwd, "output where you want to store JSON/YAML file.")
+	walkCmd.Flags().Bool("json",false,"exports the file as JSON")
+	walkCmd.Flags().Bool("yaml",false,"exports the file as YAML")
+	walkCmd.Flags().Bool("no-extn",false, "removes extension from the filename")
+	walkCmd.Flags().StringVar(&contains,"contains","","filters the output against the match")
+	walkCmd.Flags().Bool("camel-case",false,"converts the file names against to camelcase from snake case")
 }
