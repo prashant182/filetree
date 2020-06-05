@@ -24,13 +24,15 @@ import (
 // walkCmd represents the walk command
 var walkCmd = &cobra.Command{
 	Use:   "walk",
-	Short: "A brief description of your command",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
+	Short: "walk allows you to recursively find all the files and directories in a given location.",
+	Long: `walk command allows you to recursively find all the files and directories in a given location 
+and export that information into either YAML or JSON format. It can be customized using either --json or --yaml. 
+If you choose to include only a certain files in that walk you can provide the --contains flag. If you wish to remove extension 
+from the output use --no-extn flag. 
 
-Cobra is a CLI library for Go that empowers applications.
-This application is a tool to generate the needed files
-to quickly create a Cobra application.`,
+Finally the output can be customized to show certain values. For example as the value for the filename key you can choose --show-size --last-modified,
+by default the value is "true". if --dry-run flag is used to show the output on the console before checking out the file. --in and --out flags are used respectively
+to consume input and output path.`,
 	Run: func(cmd *cobra.Command, args []string) {
 		fmt.Println("walk called")
 	},
