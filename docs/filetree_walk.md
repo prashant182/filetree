@@ -16,7 +16,7 @@ if --dry-run flag is used to show the output on the console before checking out 
 
 examples:
 a directory containing following file structure
-
+```
 sc
 ├── file.go
 ├── file_test.go
@@ -26,14 +26,17 @@ sc
     │   └── deploy_test.go
     ├── pod.go
     └── pod_test.go
+```
 
-Command: filetree walk --outType=yaml --camel-case  --no-extn --in=./sc --contains=_test --dry-run
+`Command: filetree walk --outType=yaml --camel-case  --no-extn --in=./sc --contains=_test --dry-run`
+```yaml
 sc:
   fileTest: "true"
   src:
     deploy:
       deployTest: "true"
      podTest: "true"
+```
 
 
 ```
