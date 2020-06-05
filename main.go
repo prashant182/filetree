@@ -18,5 +18,5 @@ package main
 import "github.com/prashant182/filetree/cmd"
 
 func main() {
-  cmd.Execute()
+	cmd.Execute()
 }
