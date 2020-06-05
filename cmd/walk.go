@@ -17,6 +17,8 @@ package cmd
 
 import (
 	"fmt"
+	"log"
+	"os"
 
 	"github.com/spf13/cobra"
 )
@@ -38,14 +40,19 @@ to consume input and output path.`,
 	},
 }
 
+var cwd=""
+
 func init() {
 	rootCmd.AddCommand(walkCmd)
-
-	// Here you will define your flags and configuration settings.
+	cwd,err := os.Getwd()
+	if err!=nil{
+		log.Println("Unable to read current working dir error: ",err)
+	}
 
 	// Cobra supports Persistent Flags which will work for this command
 	// and all subcommands, e.g.:
-	// walkCmd.PersistentFlags().String("foo", "", "A help for foo")
+	walkCmd.Flags().String("in", cwd, "Path of the directory that you want to walk. Default is working dir")
+	walkCmd.Flags().String("out", cwd, "output where you want to store JSON/YAML file. Default is working dir")
 
 	// Cobra supports local flags which will only run when this command
 	// is called directly, e.g.:

@@ -6,6 +6,8 @@
 *.dylib
 vscode
 .idea
+bin/
+filetree
 
 # Test binary, built with `go test -c`
 *.test
