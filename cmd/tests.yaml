@@ -1,0 +1,18 @@
+sc:
+sc#file.go: "true"
+sc#file_test.go: "true"
+sc#src:
+src#deploy:
+src#deploy#deploy.go: "true"
+      deploy_test.go: "true"
+    pod.go: "true"
+    pod_test.go: "true"
+
+
+sc:
+  prq: "fsdf" #ljflkdsjfkahiuy
+prq: "jlkjfkl"
+
+m = apped(map, {"prq":"fsdf"})
+
+
