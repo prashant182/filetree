@@ -8,6 +8,9 @@ vscode
 .idea
 bin/
 filetree
+filetree-darwinclear
+filetree-windows
+filetree-darwin
 
 # Test binary, built with `go test -c`
 *.test
