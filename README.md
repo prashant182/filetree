@@ -1,6 +1,6 @@
 # filetree ![Go](https://github.com/prashant182/filetree/workflows/Go/badge.svg)
 
-This program allows you to recursively find all the files and directories in a given location.
+This program allows you to recursively find all the files and directories in a PATH and save the output as a YAML or JSON file. 
 
 ### Synopsis
 
